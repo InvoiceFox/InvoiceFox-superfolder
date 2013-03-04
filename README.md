@@ -33,7 +33,11 @@ Config gile for download command.
     lang:si
     doctitle:Račun%20št.
 
-#Plan
+##State
+
+Works.
+
+##Plan
 
  * to add functionality where you get invoice ID-s based on date or Invoice Number
  * ideas welcome
