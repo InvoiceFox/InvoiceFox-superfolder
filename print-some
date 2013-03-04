@@ -1,0 +1,25 @@
+#!/bin/bash
+
+showUsage() {
+    cat <<EOF
+Usage: 
+print-some 1 25  -- lists documents it would print
+print-some 1 10 go  -- prints documents
+EOF
+}
+
+if [ $# -eq 2 ]; then
+    if [[ $1 == "0" ]] ; then
+	echo "first arg must be 1 or more"
+    else
+	ls *pdf | sed -n "${1},${2}p" # | xargs -0 ./print
+    fi
+elif [ $# -eq 3 ] && [[ $3 == "go" ]]; then
+    if [[ $1 == "0" ]] ; then
+	echo "first arg must be 1 or more"
+    else
+	ls *pdf | sed -n "${1},${2}p" | xargs -0 ./print
+    fi
+else
+    showUsage
+fi

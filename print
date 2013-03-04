@@ -1,0 +1,5 @@
+#!/bin/bash
+#prints a document on cfg printer and media
+PRINTER=`cat print.cfg | grep "^printer:" | cut -f2 -d:`
+MEDIA=`cat print.cfg | grep "^media:" | cut -f2 -d:`
+echo "lpr -o media=$MEDIA -P $PRINTER $1"
