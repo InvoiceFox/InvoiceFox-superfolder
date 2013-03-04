@@ -35,7 +35,7 @@ Config gile for download command.
 
 ##State
 
-Works.
+Works, we use it ouserlves for http://www.cebelca.biz.
 
 ##Plan
 
