@@ -1,8 +1,8 @@
 #InvoiceFox Superfolder
 
-Downloads invoice PDF-s with id-s from 100 to 110 (inclusive).
+Downloads invoice PDF-s with id-s from 100 to 110 (inclusive). Formats can be pdf, odt and doc.
 
-    ./download 100 110
+    ./download 100 110 pdf
 
 Prints first 10 PDF-s in local folder. Withouth "go" it just displays which it will print.
 
@@ -19,11 +19,19 @@ and copy in your API token. Make the file unreadable by group and other.
 
 ##print.cfg
 
-This file so far has only two settings. Then virtual name of your printer (you can create a specific name with 
+Config file for print command. It has 2 settings: virtual name of your printer (you can create a specific name with 
 specific settings and then use it here, at least on Linux). And media type, for example A4 or Letter.
 
     printer:Samsung-color
     media:A4
+
+##download.cfg
+
+Config gile for download command.
+
+    domain:www.cebelca.biz
+    lang:si
+    doctitle:Račun%20št.
 
 #Plan
 
