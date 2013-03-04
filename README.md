@@ -10,14 +10,14 @@ Prints first 10 PDF-s in local folder. Withouth "go" it just displays which it w
 
     ./print-some 1 10 go #sends first 10 PDF-s to printer
 
-#Setup
+##Setup
 
-##.invfox-api-token
+###.invfox-api-token
 
 You have two setup files. One holds just the API token. Rename .invfox-api-token-SAMPLE to .invfox-api-token 
 and copy in your API token. Make the file unreadable by group and other.
 
-##print.cfg
+###print.cfg
 
 Config file for print command. It has 2 settings: virtual name of your printer (you can create a specific name with 
 specific settings and then use it here, at least on Linux). And media type, for example A4 or Letter.
@@ -25,7 +25,7 @@ specific settings and then use it here, at least on Linux). And media type, for 
     printer:Samsung-color
     media:A4
 
-##download.cfg
+###download.cfg
 
 Config gile for download command.
 
