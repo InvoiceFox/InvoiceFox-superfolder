@@ -38,7 +38,7 @@ Config gile for download command.
     ./get-id "14-0005"  # get's the id of invoice based on a invoice number
     ./get-id "14-0025"  
 
-    ./download <idStart> <idEnd> # downloads invoices between ID-s
+    ./download <idStart> <idEnd> pdf # downloads invoices between ID-s
 
     ./print-some 1 10 # shows which pdfs it would sent do print (first 10)
     ./print-some 1 10 go # sends first 10 pdfs to print
