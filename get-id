@@ -1,0 +1,17 @@
+#!/bin/bash
+
+showUsage() {
+    cat <<EOF
+Usage: 
+get-id 2014/0001 -- gets the head data based on document number
+EOF
+}
+
+DOMAIN=`cat download.cfg | grep "^domain:" | cut -f2 -d:`
+TOKEN=`head -n1 .invfox-api-token`
+
+if [ $# -eq 1 ]; then
+    curl -s -k -u $TOKEN:x  --data-urlencode "title=$1" "https://${DOMAIN}/API?_r=invoice-sent&_m=select-by-title&_f=csv" | head -n2 | tail -n1 | cut -f1 -d\;
+else
+    showUsage
+fi
