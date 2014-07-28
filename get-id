@@ -9,9 +9,10 @@ EOF
 
 DOMAIN=`cat download.cfg | grep "^domain:" | cut -f2 -d:`
 TOKEN=`head -n1 .invfox-api-token`
+RESOURCE="$1"
 
-if [ $# -eq 1 ]; then
-    curl -s -k -u $TOKEN:x  --data-urlencode "title=$1" "https://${DOMAIN}/API?_r=invoice-sent&_m=select-by-title&_f=csv" | head -n2 | tail -n1 | cut -f1 -d\;
+if [ $# -eq 2 ]; then
+    curl -s -k -u $TOKEN:x  --data-urlencode "title=$2" "https://${DOMAIN}/API?_r=${RESOURCE}&_m=select-by-title&_f=csv" | head -n2 | tail -n1 | cut -f1 -d\;
 else
     showUsage
 fi

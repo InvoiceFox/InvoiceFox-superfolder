@@ -3,7 +3,8 @@
 showUsage() {
     cat <<EOF
 Usage: 
-download 1 10 pdf -- downloads documents with id-s 1 to 10. pdf odt and doc are possible
+download invoice-sent 1 10 pdf -- downloads documents with id-s 1 to 10. 
+download preinvoice 1 10 pdf -- downloads documents with id-s 1 to 10.
 EOF
 }
 
@@ -12,15 +13,16 @@ EOF
 DOMAIN=`cat download.cfg | grep "^domain:" | cut -f2 -d:`
 LANG=`cat download.cfg | grep "^lang:" | cut -f2 -d:`
 DOCTITLE=`cat download.cfg | grep "^doctitle:" | cut -f2 -d:`
+RESOURCE="$1"
 
 
 
-if [ $# -eq 3 ]; then
-    for ((i=$1; i<=$2; i++))
+if [ $# -eq 4 ]; then
+    for ((i=$2; i<=$3; i++))
     do
 	echo "downloading PDF id: $i"
-	curl -k -u `head -n1 .invfox-api-token`:x -J -O \
-	    "https://${DOMAIN}/API-pdf?id=${i}&res=invoice-sent&lang=${LANG}&format=${3}&doctitle=${DOCTITLE}"
+ 	curl -k -u `head -n1 .invfox-api-token`:x -J -O \
+	    "https://${DOMAIN}/API-pdf?id=${i}&res=${RESOURCE}&lang=${LANG}&format=${3}&doctitle=${DOCTITLE}"
     done
 else
     showUsage
