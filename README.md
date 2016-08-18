@@ -35,7 +35,7 @@ specific settings and then use it here, at least on Linux). And media type, for 
 
 ###download.cfg
 
-Config gile for download command.
+Config file for download command.
 
     domain:www.cebelca.biz
     lang:si
