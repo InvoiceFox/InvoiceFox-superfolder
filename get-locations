@@ -1,0 +1,18 @@
+#!/bin/bash
+
+showUsage() {
+    cat <<EOF
+Usage: 
+get-locations
+EOF
+}
+
+DOMAIN=`cat download.cfg | grep "^domain:" | cut -f2 -d:`
+TOKEN=`head -n1 .invfox-api-token`
+RESOURCE="sales-location"
+
+if [ $# -eq 0 ]; then
+    curl -s -k -u $TOKEN:x  --data-urlencode "title=$2" "https://${DOMAIN}/API?_r=${RESOURCE}&_m=select-all-registered&_f=csv"
+else
+    showUsage
+fi
